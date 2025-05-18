@@ -3,64 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🌸 Samshi's hard-earned Prize! 🌸</title>
+  <title>💖Prize!!!💖</title>
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: #fff6f9;
-      color: #444;
+      background-color: #ffe6f0;
+      color: #d63384;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
+      padding: 30px;
+      min-height: 100vh;
+      text-align: center;
     }
     h1 {
       margin-bottom: 20px;
+      font-size: 2rem;
     }
     input, button {
-      font-size: 1rem;
       padding: 10px 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin: 5px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ff99c8;
+      margin: 10px;
     }
-    #message {
-      margin-top: 30px;
-      font-size: 1.5rem;
+    #content {
       display: none;
-      text-align: center;
-      animation: bloom 1.5s ease-out forwards;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in-out forwards;
     }
-    @keyframes bloom {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    .gif {
+      width: 300px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px #ffb3d9;
     }
-    .flower {
-      font-size: 3rem;
-      animation: bloom 1.5s ease-out forwards;
+    .letter {
+      background: #fff0f5;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #ffcce6;
+      max-width: 600px;
+      font-size: 1.1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
-  <h1>🌸 Enter Your Secret Passcode</h1>
-  <input type="password" id="passcode" placeholder="Shhh..." />
-  <button onclick="checkPasscode()">Unlock</button>
+  <h1>💌 Enter the Secret Code!!!💌</h1>
+  <input type="password" id="passcode" placeholder="Your magic code..." />
+  <button onclick="unlockLove()">Unlock</button>
 
-  <div id="message">
-    <div class="flower">🌼🌷🌸</div>
-    <p>You are a gentle miracle in a loud world 🌙</p>
+  <div id="content">
+    <img class="gif" src="https://i.pinimg.com/originals/f4/ba/fb/f4bafb0e2b3fdcbcb6fa028be34a7a9e.gif" alt="Cute Gif" />
+    <div class="letter">
+      Dear you, <br><br>
+      You are the sweetest melody in the loudest storm, the warmest light in the coldest days. 🌸<br>
+      Your smile is a sunrise, your presence a peaceful garden in full bloom. <br><br>
+      I made this just for you — because you deserve soft things, kind words, and a gentle reminder that you're deeply loved. 💕<br><br>
+      With all the cuteness in the world,<br>
+      💖 Me
+    </div>
   </div>
 
+  <!-- Cute sound -->
+  <audio id="cuteSound" src="https://cdn.pixabay.com/download/audio/2023/03/01/audio_8e469d967e.mp3?filename=cute-level-up-1-189853.mp3" preload="auto"></audio>
+
   <script>
-    const secret = "dreamy";
-    function checkPasscode() {
-      const entered = document.getElementById("passcode").value.trim();
-      if (entered.toLowerCase() === secret) {
-        document.getElementById("message").style.display = "block";
+    const secret = "17243011";
+    function unlockLove() {
+      const input = document.getElementById("passcode").value.trim().toLowerCase();
+      if (input === secret) {
+        document.getElementById("content").style.display = "block";
+        document.getElementById("cuteSound").play();
       } else {
-        alert("Nope! Try again bembi! You can do this!");
+        alert("🌸 Nopeeee! Try again bembi, you can do this! 🌸");
       }
     }
   </script>
