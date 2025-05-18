@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💖 Secret Love Garden</title>
+  <title>asjkjldhalksdj</title>
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -59,21 +59,25 @@
   <button onclick="unlockLove()">Unlock</button>
 
   <div id="content">
-    <img class="gif" src="https://i.imgur.com/jyRvEeq.gif" alt="Cute Gif" />
+    <!-- 💖 WORKING Hello Kitty Congratulations GIF -->
+    <img class="gif" src="https://media.tenor.com/O9zqGOPB7yUAAAAi/hello-kitty-congratulations.gif" alt="Hello Kitty Congrats" />
+    
     <div class="letter">
-      Dear you, <br><br>
-      You are the sweetest melody in the loudest storm, the warmest light in the coldest days. 🌸<br>
-      Your smile is a sunrise, your presence a peaceful garden in full bloom. <br><br>
-      I made this just for you — because you deserve soft things, kind words, and a gentle reminder that you're deeply loved. 💕<br><br>
-      With all the cuteness in the world,<br>
-      💖 Me
+      💖 Congratulations, sweet soul! <br><br>
+      You've unlocked a tiny secret garden just for you. <br>
+      You're soft, strong, kind, and more magical than moonlight on cherry blossoms 🌸<br><br>
+      Keep blooming, even when the world gets loud. <br>
+      You’re someone’s sunshine, someone’s favorite thought, someone’s gentle miracle. <br><br>
+      Sending you hugs wrapped in pink ribbons and glitter stars ✨<br><br>
+      With love,<br>
+      🧸 Me
     </div>
   </div>
 
-  <!-- Background soft music (auto-plays muted, loops) -->
-  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2023/05/04/audio_f5339e1f58.mp3?filename=romantic-cute-piano-144998.mp3" autoplay loop muted></audio>
+  <!-- 🎵 Background music -->
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/22/audio_49b8c12d2a.mp3?filename=lofi-study-112191.mp3" loop></audio>
 
-  <!-- Cute chime sound when correct password entered -->
+  <!-- 🎶 Chime when unlocked -->
   <audio id="cuteChime" src="https://cdn.pixabay.com/download/audio/2023/03/01/audio_8e469d967e.mp3?filename=cute-level-up-1-189853.mp3" preload="auto"></audio>
 
   <script>
@@ -84,18 +88,18 @@
       if (input === secret) {
         document.getElementById("content").style.display = "block";
 
-        // Play chime
         const chime = document.getElementById("cuteChime");
         chime.volume = 0.8;
         chime.play();
 
-        // Unmute and play background music
         const bgMusic = document.getElementById("bgMusic");
-        bgMusic.muted = false;
         bgMusic.volume = 0.2;
-        bgMusic.play();
+        bgMusic.play().catch(() => {
+          // If browser blocks autoplay, inform user gently
+          alert("💡 Tap the screen to hear some lovely music 🎶");
+        });
       } else {
-        alert("Oops! Try again, sweet pea 🌸");
+        alert("Oops! Try again, cupcake 🍰");
       }
     }
   </script>
