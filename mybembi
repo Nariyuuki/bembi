@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌸 Secret Garden</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #fff6f9;
+      color: #444;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input, button {
+      font-size: 1rem;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin: 5px;
+    }
+    #message {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      display: none;
+      text-align: center;
+      animation: bloom 1.5s ease-out forwards;
+    }
+    @keyframes bloom {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .flower {
+      font-size: 3rem;
+      animation: bloom 1.5s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 Enter Your Secret Passcode</h1>
+  <input type="password" id="passcode" placeholder="Shhh..." />
+  <button onclick="checkPasscode()">Unlock</button>
+
+  <div id="message">
+    <div class="flower">🌼🌷🌸</div>
+    <p>You are a gentle miracle in a loud world 🌙</p>
+  </div>
+
+  <script>
+    const secret = "dreamy";
+    function checkPasscode() {
+      const entered = document.getElementById("passcode").value.trim();
+      if (entered.toLowerCase() === secret) {
+        document.getElementById("message").style.display = "block";
+      } else {
+        alert("Nope! Try again, friend 🐾");
+      }
+    }
+  </script>
+</body>
+</html>
