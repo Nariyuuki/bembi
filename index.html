@@ -3,110 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> 💖 </title>
+  <title>PLSWORK</title>
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background-color: #ffe6f0;
+      background: #ffeef8;
       color: #d63384;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-      min-height: 100vh;
       text-align: center;
+      padding: 2rem;
     }
     h1 {
-      margin-bottom: 20px;
-      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    input, button {
-      padding: 10px 15px;
+    button, input {
       font-size: 1rem;
-      border-radius: 10px;
-      border: 1px solid #ff99c8;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid #ffaad4;
       margin: 10px;
     }
-    #content {
+    #message {
       display: none;
-      margin-top: 30px;
-      animation: fadeIn 2s ease-in-out forwards;
+      margin-top: 2rem;
+      animation: fadeIn 2s ease forwards;
     }
     .gif {
       width: 300px;
-      border-radius: 20px;
+      border-radius: 15px;
       margin-bottom: 20px;
-      box-shadow: 0 0 15px #ffb3d9;
+      box-shadow: 0 0 10px #ffccdd;
     }
     .letter {
-      background: #fff0f5;
+      background: #fff0f8;
       padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px #ffcce6;
+      border-radius: 12px;
+      margin: auto;
       max-width: 600px;
+      box-shadow: 0 0 10px #ffb3d9;
       font-size: 1.1rem;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-<body>
-  <h1>💌 Enter the Secret Code</h1>
-  <input type="password" id="passcode" placeholder="Your magic word..." />
-  <button onclick="unlockLove()">Unlock</button>
+<body onclick="startMusic()">
+  <h1>💖 Welcome to the Secret Garden</h1>
+  <input type="password" id="passcode" placeholder="Enter your magic word..." />
+  <button onclick="checkPassword()">Unlock</button>
 
-  <div id="content">
-    <!-- ✅ Working Hello Kitty GIF from Imgur -->
-    <img class="gif" src="https://i.imgur.com/NkFLfXJ.gif" alt="Hello Kitty Congrats" />
-
+  <div id="message">
+    <img class="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Hello Kitty Congratulations" />
     <div class="letter">
-      💖 Congratulations, sweet soul! <br><br>
-      You've unlocked a tiny secret garden just for you. <br>
-      You're soft, strong, kind, and more magical than moonlight on cherry blossoms 🌸<br><br>
-      Keep blooming, even when the world gets loud. <br>
-      You’re someone’s sunshine, someone’s favorite thought, someone’s gentle miracle. <br><br>
-      Sending you hugs wrapped in pink ribbons and glitter stars ✨<br><br>
-      With love,<br>
-      🧸 Me
+      🌸 Congratulations my sweet friend!<br><br>
+      You’ve unlocked a hidden garden full of love and softness. You are kind, gentle, and stronger than you think.<br><br>
+      Keep going, keep blooming, and know that you are so loved.<br><br>
+      💕 You are someone’s favorite thought.
     </div>
   </div>
 
-  <!-- 🎵 Background music -->
-  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_f2a5df6d6e.mp3?filename=calm-lofi-ambient-124005.mp3" loop></audio>
-
-  <!-- 🎶 Chime when unlocked -->
-  <audio id="cuteChime" src="https://cdn.pixabay.com/download/audio/2023/03/01/audio_8e469d967e.mp3?filename=cute-level-up-1-189853.mp3" preload="auto"></audio>
+  <!-- 🎵 Background Music -->
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9760df2c83.mp3?filename=romantic-piano-loop-110143.mp3" loop></audio>
 
   <script>
     const secret = "dreamy";
+    let musicStarted = false;
 
-    function unlockLove() {
+    function checkPassword() {
       const input = document.getElementById("passcode").value.trim().toLowerCase();
       if (input === secret) {
-        document.getElementById("content").style.display = "block";
-
-        const chime = document.getElementById("cuteChime");
-        chime.volume = 0.8;
-        chime.play();
-
-        const bgMusic = document.getElementById("bgMusic");
-        bgMusic.volume = 0.25;
-
-        // Try to play music, fallback to prompt if browser blocks it
-        bgMusic.play().catch(() => {
-          alert("💡 Tap anywhere on the page to start the background music 🎶");
-          document.body.addEventListener("click", () => {
-            bgMusic.play();
-          }, { once: true });
-        });
+        document.getElementById("message").style.display = "block";
       } else {
-        alert("Oops! Try again, cupcake 🍰");
+        alert("Nope! Try again, cupcake 🍰");
+      }
+    }
+
+    function startMusic() {
+      if (!musicStarted) {
+        const music = document.getElementById("bgMusic");
+        music.volume = 0.3;
+        music.play().catch(() => {
+          console.log("Autoplay blocked, waiting for interaction");
+        });
+        musicStarted = true;
       }
     }
   </script>
 </body>
 </html>
-
