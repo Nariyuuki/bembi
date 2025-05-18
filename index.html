@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>asjkjldhalksdj</title>
+  <title>attempt 9999</title>
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -59,9 +59,9 @@
   <button onclick="unlockLove()">Unlock</button>
 
   <div id="content">
-    <!-- 💖 WORKING Hello Kitty Congratulations GIF -->
-    <img class="gif" src="https://media.tenor.com/O9zqGOPB7yUAAAAi/hello-kitty-congratulations.gif" alt="Hello Kitty Congrats" />
-    
+    <!-- ✅ Working Hello Kitty GIF from Imgur -->
+    <img class="gif" src="https://i.imgur.com/NkFLfXJ.gif" alt="Hello Kitty Congrats" />
+
     <div class="letter">
       💖 Congratulations, sweet soul! <br><br>
       You've unlocked a tiny secret garden just for you. <br>
@@ -75,7 +75,7 @@
   </div>
 
   <!-- 🎵 Background music -->
-  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/22/audio_49b8c12d2a.mp3?filename=lofi-study-112191.mp3" loop></audio>
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_f2a5df6d6e.mp3?filename=calm-lofi-ambient-124005.mp3" loop></audio>
 
   <!-- 🎶 Chime when unlocked -->
   <audio id="cuteChime" src="https://cdn.pixabay.com/download/audio/2023/03/01/audio_8e469d967e.mp3?filename=cute-level-up-1-189853.mp3" preload="auto"></audio>
@@ -93,10 +93,14 @@
         chime.play();
 
         const bgMusic = document.getElementById("bgMusic");
-        bgMusic.volume = 0.2;
+        bgMusic.volume = 0.25;
+
+        // Try to play music, fallback to prompt if browser blocks it
         bgMusic.play().catch(() => {
-          // If browser blocks autoplay, inform user gently
-          alert("💡 Tap the screen to hear some lovely music 🎶");
+          alert("💡 Tap anywhere on the page to start the background music 🎶");
+          document.body.addEventListener("click", () => {
+            bgMusic.play();
+          }, { once: true });
         });
       } else {
         alert("Oops! Try again, cupcake 🍰");
